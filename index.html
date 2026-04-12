@@ -6,8 +6,28 @@
     <title id="meta-title">Nome do Produto - Oferta Exclusiva</title>
     <link rel="stylesheet" href="style.css">
     <meta name="description" id="meta-description" content="Compre seu produto com o melhor preço. Entrega rápida e garantia total. Aproveite a promoção!">
+    
+    <style>
+        /* Estilo do círculo girando */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border-left-color: #28a745;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
+
+    <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="spinner"></div>
+        <p style="margin-top: 15px; font-family: sans-serif; color: #333;">Carregando ofertas...</p>
+    </div>
 
     <div class="page-container">
         <main class="product-card">
@@ -16,11 +36,10 @@
             </div>
 
             <section class="product-info">
-                <h1 id="titulo-produto">Carregando produto...</h1>
-                <p class="description">Aguarde um instante.</p>
+                <h1 id="titulo-produto"></h1> <p class="description"></p>
                 
                 <div class="price-container">
-                    <span class="current-price" id="preco-exibicao">R$ 0,00</span>
+                    <span class="current-price" id="preco-exibicao"></span>
                 </div>
 
                 <button id="btn-vendas" class="cta-button">Comprar Agora</button>
@@ -40,7 +59,6 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
-    
     <script src="script.js"></script>
 </body>
 </html>
