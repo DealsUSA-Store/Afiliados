@@ -81,5 +81,8 @@ function salvarConfiguracoes() {
     .then(() => {
         alert("Success! Settings for " + produtoID + " saved.");
         location.reload();
+
+        document.title = dados.titulo + " - Official Store"; 
+document.getElementById('meta-description').content = "Get the " + dados.titulo + " at the best price...";
     });
 }

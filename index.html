@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="meta-title">Exclusive Offer</title>
+    <title>Official Store - Best Deals</title> 
     <link rel="stylesheet" href="style.css">
-    <meta name="description" id="meta-description" content="Get the best deals here. Fast shipping and full warranty. Check it out!">
+    <meta name="description" id="meta-description" content="Loading official product details...">
     
     <style>
         .spinner {
@@ -16,32 +16,15 @@
             border-left-color: #28a745;
             animation: spin 1s linear infinite;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-   <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <div class="spinner"></div>
-    <p style="margin-top: 15px; font-family: sans-serif; color: #333; font-weight: 500;">Loading best deals...</p>
-</div>
-
-<style>
-    /* Estilo do círculo girando */
-    .spinner {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border-left-color: #28a745;
-        animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-</style>
+    <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="spinner"></div>
+        <p style="margin-top: 15px; font-family: sans-serif; color: #333; font-weight: 500;">Loading official store...</p>
+    </div>
 
     <div class="page-container">
         <main class="product-card">
@@ -61,12 +44,12 @@
 
                 <section class="admin-panel" id="painel-admin" style="display: none; background: #eee; padding: 15px; border-radius: 8px; margin-top: 20px;">
                     <h3>Product Settings</h3>
-                    <input type="text" id="input-titulo" placeholder="Product Title" style="display:block; width:90%; margin:5px 0;">
-                    <input type="text" id="input-descricao" placeholder="Short Description" style="display:block; width:90%; margin:5px 0;">
-                    <input type="text" id="input-link" placeholder="Affiliate Link" style="display:block; width:90%; margin:5px 0;">
-                    <input type="text" id="input-foto" placeholder="Image URL" style="display:block; width:90%; margin:5px 0;">
-                    <input type="text" id="input-preco" placeholder="Price (Ex: 97.00)" style="display:block; width:90%; margin:5px 0;">
-                    <button onclick="salvarConfiguracoes()" style="background: #28a745; color: white; border: none; padding: 10px; cursor: pointer;">Save to Cloud</button>
+                    <input type="text" id="input-titulo" placeholder="Product Full Name (Ex: Rubi Vacuum Cleaner)">
+                    <input type="text" id="input-descricao" placeholder="Short description for Google">
+                    <input type="text" id="input-link" placeholder="Affiliate Link">
+                    <input type="text" id="input-foto" placeholder="Image URL">
+                    <input type="text" id="input-preco" placeholder="Price (Ex: 97.00)">
+                    <button onclick="salvarConfiguracoes()" style="background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; margin-top: 10px;">Save to Cloud</button>
                 </section>
             </section>
         </main>
