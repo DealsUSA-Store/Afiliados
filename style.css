@@ -62,12 +62,6 @@ h1 {
     margin-bottom: 25px;
 }
 
-.old-price {
-    display: block;
-    text-decoration: line-through;
-    color: #999;
-}
-
 .current-price {
     display: block;
     font-size: 32px;
@@ -75,9 +69,10 @@ h1 {
     color: #27ae60;
 }
 
+/* --- BOTÃO PULSANTE OTIMIZADO --- */
 .cta-button {
     display: block;
-    width: 100%;            /* Faz o botão ocupar a largura toda do card */
+    width: 100%;
     background: #27ae60;
     color: white;
     text-decoration: none;
@@ -85,18 +80,37 @@ h1 {
     border-radius: 10px;
     font-weight: bold;
     font-size: 18px;
-    transition: transform 0.2s;
-    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    text-transform: uppercase;
     
-    /* ADICIONE ESTAS 3 LINHAS ABAIXO: */
-    border: none;           /* Remove a borda padrão chata do botão */
-    cursor: pointer;        /* Faz aparecer a "mãozinha" ao passar o mouse */
-    appearance: none;       /* Remove estilos específicos de sistemas (iOS/Android) */
+    /* Ativa a animação */
+    animation: pulsar 1.5s infinite;
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    transform: scale(1.03);
+    animation: none; /* Para de pulsar ao passar o mouse */
     background: #2ecc71;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.6);
+}
+
+/* Definição da Animação de Pulso */
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+    }
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 15px rgba(39, 174, 96, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+    }
 }
 
 .guarantee {
@@ -109,25 +123,20 @@ h1 {
     color: #888;
 }
 
-/* Esconde o painel administrativo completamente por padrão */
+/* --- PAINEL ADMIN --- */
 .admin-panel {
     display: none; 
     margin-top: 30px;
     padding: 20px;
-    background: #f0f0f0;
-    border: 1px dashed #673de6;
+    background: #f8f9fa;
+    border: 2px dashed #673de6;
     border-radius: 10px;
-    text-align: center;
-}
-
-
-.admin-panel:hover {
-    opacity: 1; /* Só aparece quando você passa o mouse */
 }
 
 .admin-panel input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
