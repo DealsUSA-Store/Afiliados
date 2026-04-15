@@ -30,23 +30,28 @@ window.onload = function() {
         const dados = snapshot.val();
         
         if (dados) {
-            // Update Page Content
-            if(document.getElementById('titulo-produto')) document.getElementById('titulo-produto').innerText = dados.titulo;
-            if(document.querySelector('.description')) document.querySelector('.description').innerText = dados.descricao;
-            if(document.getElementById('foto-produto')) document.getElementById('foto-produto').src = dados.foto;
-            if(document.getElementById('preco-exibicao')) document.getElementById('preco-exibicao').innerText = "$" + dados.preco;
-            
-            // SEO & Browser Tab Title Update
-            document.title = dados.titulo + " - Official Store"; 
+            // 1. Atualiza o Título da Aba do Navegador
+            document.title = (dados.titulo || "Product") + " - Official Store";
+
+            // 2. Atualiza o Título Visível na Página
+            if(document.getElementById('titulo-produto')) {
+                document.getElementById('titulo-produto').innerText = dados.titulo;
+            }
+
+            // 3. Atualiza Meta Description (SEO)
             const metaDesc = document.getElementById('meta-description');
             if(metaDesc) {
                 metaDesc.content = "Get the " + dados.titulo + " at the best price. Limited time offer!";
             }
+
+            // 4. Atualiza Restante do Conteúdo
+            if(document.querySelector('.description')) document.querySelector('.description').innerText = dados.descricao;
+            if(document.getElementById('foto-produto')) document.getElementById('foto-produto').src = dados.foto;
+            if(document.getElementById('preco-exibicao')) document.getElementById('preco-exibicao').innerText = "$" + dados.preco;
             
-            // Button Configuration
+            // 5. Configuração do Botão
             const botao = document.getElementById('btn-vendas');
             if (botao) {
-                botao.innerText = "Buy Now";
                 botao.onclick = () => {
                     if (dados.link) window.location.href = dados.link;
                 };
@@ -79,10 +84,10 @@ function salvarConfiguracoes() {
 
     database.ref('produtos/' + produtoID).set(dadosParaSalvar)
     .then(() => {
-        alert("Success! Settings for " + produtoID + " saved.");
-        location.reload();
-
-        document.title = dados.titulo + " - Official Store"; 
-document.getElementById('meta-description').content = "Get the " + dados.titulo + " at the best price...";
+        alert("Success! Settings saved.");
+        location.reload(); // Recarrega para aplicar as mudanças
+    })
+    .catch((error) => {
+        alert("Error saving: " + error.message);
     });
 }
